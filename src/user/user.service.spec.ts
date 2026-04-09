@@ -2,7 +2,7 @@ import { Test, TestingModule } from "@nestjs/testing";
 import { getRepositoryToken } from "@nestjs/typeorm";
 import { NotFoundException } from "@nestjs/common";
 import { UserService } from "./user.service";
-import { User } from "./enitities/user.entity";
+import { User } from "./entities/user.entity";
 import { SignupDto } from "../auth/dto/signup.dto";
 import { Repository } from "typeorm";
 

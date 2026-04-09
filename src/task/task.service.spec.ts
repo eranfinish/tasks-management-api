@@ -2,7 +2,7 @@ import { Test, TestingModule } from "@nestjs/testing";
 import { TasksService } from "./task.service";
 import { getRepositoryToken } from "@nestjs/typeorm";
 import { Task } from "./entities/task.entity";
-import { User } from "../user/enitities/user.entity";
+import { User } from "../user/entities/user.entity";
 import { NotFoundException } from "@nestjs/common";
 import { TaskStatus } from "./enums/task-status.enum";
 import { TaskPriority } from "./enums/task-priority.enum";

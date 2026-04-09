@@ -6,7 +6,7 @@ import { AppService } from "./app.service";
 import { TaskModule } from "./task/task.module";
 import { UserModule } from "./user/user.module";
 import { Task } from "./task/entities/task.entity";
-import { User } from "./user/enitities/user.entity";
+import { User } from "./user/entities/user.entity";
 import { Tag } from "./task/entities/tag.entity";
 import { AuthModule } from "./auth/auth.module";
 

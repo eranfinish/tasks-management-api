@@ -8,35 +8,40 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { User } from "../../user/enitities/user.entity";
+import { User } from "../../user/entities/user.entity";
 import { Tag } from "./tag.entity";
+import { TaskStatus } from "../enums/task-status.enum";
+import { TaskPriority } from "../enums/task-priority.enum";
 
 @Entity("tasks")
 export class Task {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
+
   @Column({ length: 100 })
-  title: string;
+  title!: string;
+
   @Column("text")
-  description: string; // 🔗 Relation
+  description!: string;
 
   @CreateDateColumn()
-  created_at: Date;
+  created_at!: Date;
 
   @UpdateDateColumn()
-  updated_at: Date;
+  updated_at!: Date;
+
   @Column()
-  status: "OPEN" | "IN_PROGRESS" | "DONE";
+  status!: TaskStatus;
+
   @Column()
-  priority: "LOW" | "MEDIUM" | "HIGH";
+  priority!: TaskPriority;
 
   @ManyToOne(() => User, (user) => user.tasks)
-  @JoinTable() //מחזיק את הקשר בין הטבלה של
-  // המשימות לטבלה של המשתמשים
-  assignedTo: User;
+  // TypeORM יוצר אוטומטית עמודת assignedToId בטבלת tasks
+  assignedTo!: User;
 
   @ManyToMany(() => Tag, (tag) => tag.tasks)
   @JoinTable() //מחזיק ב - Forign Key
   // ⭐ object אחד!
-  tags: Tag[];
+  tags!: Tag[];
 }
